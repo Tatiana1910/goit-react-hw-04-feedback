@@ -1,4 +1,3 @@
-import { Notification } from 'components/Notification/Notification';
 import propTypes from 'prop-types';
 import { Title, Item, Span, Div, List } from './Statistics.styled';
 
@@ -9,7 +8,7 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => {
-  return total !== 0 ? (
+  return (
     <Div>
       <Title>Statistics</Title>
       <List>
@@ -22,12 +21,10 @@ export const Statistics = ({
         </Item>
         <Item>
           <Span>Positive feedback: </Span>
-          {positivePercentage}
+          {positivePercentage}%
         </Item>
       </List>
     </Div>
-  ) : (
-    <Notification message="There is not feedback" />
   );
 };
 
@@ -36,5 +33,5 @@ Statistics.propTypes = {
   neutral: propTypes.number.isRequired,
   bad: propTypes.number.isRequired,
   total: propTypes.number.isRequired,
-  positivePercentage: propTypes.string.isRequired,
+  positivePercentage: propTypes.number.isRequired,
 };
